@@ -41,4 +41,13 @@ public class TaskManager {
         }
         return false;
     }
+
+    public boolean removeTask(int id){
+        Task search = searchTaskbyId(id);
+        if (search != null){
+            tasks.remove(search);
+            return true;
+        }
+        return false;
+    }
 }
