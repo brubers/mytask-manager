@@ -19,11 +19,11 @@ public class App {
         while(true){
             System.out.println();
             System.out.println("MENU");
-            System.out.println("1 - Adicionar Tarefa");
-            System.out.println("2 - Listas Tarefas");
-            System.out.println("3 - Concluir Tarefas");
-            System.out.println("4 - Remover tarefa");
-            System.out.println("0 - Sair");
+            System.out.println("1 - Add Task");
+            System.out.println("2 - List Tasks");
+            System.out.println("3 - Complete Task");
+            System.out.println("4 - Remove Task");
+            System.out.println("0 - End Program");
             System.out.println();
 
             int choice = sc.nextInt();
@@ -40,12 +40,13 @@ public class App {
             case 1:
                 System.out.println("ID: ");
                 int id = sc.nextInt();
+                sc.nextLine();
                 System.out.print("");
-                System.out.println("Título: ");
-                String title = sc.next();
+                System.out.println("Title: ");
+                String title = sc.nextLine();
                 System.out.print("");
                 System.out.println("Description: ");
-                String description = sc.next();
+                String description = sc.nextLine();
 
                 taskManager.addTask(new Task(id, title, description));
                 break;
@@ -53,25 +54,25 @@ public class App {
                 taskManager.listTasks();
                 break;
             case 3:
-                System.out.println("Qual ID da tarefa que deverá ser concluida?");
+                System.out.println("Which Task ID should be marked as completed?");
                 boolean completed = taskManager.completeTaskById(sc.nextInt());
                 if (completed){
-                    System.out.println("Tarefa concluída");
+                    System.out.println("Task completed");
                 } else{
-                    System.out.println("Erro.");
+                    System.out.println("ERROR.");
                 }
                 break;
             case 4:
-                System.out.println("Qual ID da tarefa que deverá ser removida?");
+                System.out.println("Which Task ID should be removed?");
                 boolean removed = taskManager.removeTask(sc.nextInt());
                 if (removed){
-                    System.out.println("Removido com sucesso.");
+                    System.out.println("Removed.");
                 } else {
-                    System.out.println("Erro.");
+                    System.out.println("Error.");
                 }
                 break;
             default:
-                System.out.println("Opção Invalida.");
+                System.out.println("Invalid option. Try Again.");
                 break;
         }
 

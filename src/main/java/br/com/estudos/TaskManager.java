@@ -6,12 +6,16 @@ import java.util.List;
 public class TaskManager {
     private List<Task> tasks;
 
-    public TaskManager(List<Task> tarefas) {
-        this.tasks = new ArrayList<>();
+    public TaskManager(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
-    public void addTask(Task tarefa) {
-        tasks.add(tarefa);
+    public void addTask(Task task) {
+        if (searchTaskbyId(task.getId()) == null) {
+            tasks.add(task);
+        } else {
+            System.out.println("ID has already been registered");
+        }
     }
 
     public void listTasks() {
@@ -24,27 +28,27 @@ public class TaskManager {
         }
     }
 
-    public Task searchTaskbyId(int id){
-        for(Task i : tasks){
-            if (i.getId() == id){
+    public Task searchTaskbyId(int id) {
+        for (Task i : tasks) {
+            if (i.getId() == id) {
                 return i;
             }
         }
         return null;
     }
 
-    public boolean completeTaskById(int id){
+    public boolean completeTaskById(int id) {
         Task search = searchTaskbyId(id);
-        if (search != null){
+        if (search != null) {
             search.done();
             return true;
         }
         return false;
     }
 
-    public boolean removeTask(int id){
+    public boolean removeTask(int id) {
         Task search = searchTaskbyId(id);
-        if (search != null){
+        if (search != null) {
             tasks.remove(search);
             return true;
         }
