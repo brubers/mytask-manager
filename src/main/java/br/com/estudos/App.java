@@ -68,7 +68,7 @@ public class App {
                 if (completed) {
                     System.out.println("Task completed");
                 } else {
-                    System.out.println("ERROR.");
+                    idNotFound();
                 }
                 break;
             case 4:
@@ -77,11 +77,11 @@ public class App {
                 id = readInt(sc);
                 sc.nextLine();
 
-                boolean removed = taskManager.removeTask(sc.nextInt());
+                boolean removed = taskManager.removeTask(id);
                 if (removed) {
                     System.out.println("Removed.");
                 } else {
-                    System.out.println("Error.");
+                    idNotFound();
                 }
                 break;
             default:
@@ -105,5 +105,8 @@ public class App {
         return input;
     }
 
+    public static void idNotFound() {
+        System.out.println("No task with the specified ID was found");
+    }
 }
 

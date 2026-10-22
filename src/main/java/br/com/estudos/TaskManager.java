@@ -1,6 +1,5 @@
 package br.com.estudos;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TaskManager {
@@ -11,7 +10,7 @@ public class TaskManager {
     }
 
     public void addTask(Task task) {
-        if (searchTaskbyId(task.getId()) == null) {
+        if (searchTaskById(task.getId()) == null) {
             tasks.add(task);
         } else {
             System.out.println("ID has already been registered");
@@ -28,7 +27,7 @@ public class TaskManager {
         }
     }
 
-    public Task searchTaskbyId(int id) {
+    public Task searchTaskById(int id) {
         for (Task i : tasks) {
             if (i.getId() == id) {
                 return i;
@@ -38,7 +37,7 @@ public class TaskManager {
     }
 
     public boolean completeTaskById(int id) {
-        Task search = searchTaskbyId(id);
+        Task search = searchTaskById(id);
         if (search != null) {
             search.done();
             return true;
@@ -47,11 +46,12 @@ public class TaskManager {
     }
 
     public boolean removeTask(int id) {
-        Task search = searchTaskbyId(id);
+        Task search = searchTaskById(id);
         if (search != null) {
             tasks.remove(search);
             return true;
         }
+
         return false;
     }
 }
