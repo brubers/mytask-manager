@@ -21,8 +21,10 @@ public class TaskManager {
         if (tasks.isEmpty()) {
             System.out.println("There is no item in the list yet.");
         } else {
+            System.out.println(" ");
             for (Task i : tasks) { //for each
                 System.out.println(i);
+                System.out.println(" ");
             }
         }
     }

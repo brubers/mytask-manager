@@ -34,12 +34,18 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", done=" + done +
-                '}';
+        String status;
+
+        if (done) {
+            status = "Completed";
+        } else {
+            status = "Pending";
+        }
+
+        return "ID: " + id +
+                "\nTitle: " + title +
+                "\nDescription: " + description +
+                "\nStatus: " + status;
     }
 }
 
